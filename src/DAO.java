@@ -83,7 +83,7 @@ public class DAO {
 		}
 		}
 	public void adiciona(Pessoas pessoa) {
-		String sql = "INSERT INTO Pessoas" +
+		String sql = "INSERT INTO Pessoa" +
 		"(nome,nascimento,altura) values(?,?,?)";
 		PreparedStatement stmt = null;
 		try {
