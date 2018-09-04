@@ -1,3 +1,5 @@
+package br.insper.tecweb.p1;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;

@@ -1,3 +1,5 @@
+package br.insper.tecweb.p1;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -19,7 +21,7 @@ public class DAO {
 		}
 		 try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/handout", "root", "");
+			"jdbc:mysql://localhost/meus_dados", "root", "senha123");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,7 +33,7 @@ public class DAO {
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.
-					prepareStatement("SELECT * FROM Pessoas");
+					prepareStatement("SELECT * FROM Pessoa");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
