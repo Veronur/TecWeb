@@ -24,8 +24,8 @@ public class Atualiza extends HttpServlet {
 				out.println("<form method='post'>");
 				out.println("ID: <input type='number' name='id'><br>");
 				out.println("Nome: <input type='text' name='nome'><br>");
-				out.println("Nascimento: <input type='date' name='nascimento'><br>");
-				out.println("Altura: <input type='number' name='altura' step='0.01'><br>");
+				out.println("Email: <input type='text' name='email'><br>");
+				out.println("Senha: <input type='text' name='senha' step='0.01'><br>");
 				out.println("<input type='submit' value='Submit'>");
 				out.println("</form>");
 				out.println("<body><html>");
@@ -35,22 +35,14 @@ public class Atualiza extends HttpServlet {
 							HttpServletResponse response)
 			throws ServletException, IOException {
 					DAO dao = new DAO();
-					Pessoas pessoa = new Pessoas();
+					Usuarios pessoa = new Usuarios();
 					pessoa.setId(Integer.valueOf(request.getParameter("id")));
 					pessoa.setNome(request.getParameter("nome"));
-					pessoa.setAltura(Double.valueOf(request.getParameter("altura")));
+					pessoa.setSenha(String.valueOf(request.getParameter("senha")));
 					
-					String nascimento = request.getParameter("nascimento");
-					Date data = null;
-					try {
-						data = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(nascimento);
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					Calendar dataNascimento = Calendar.getInstance();
-					dataNascimento.setTime(data);
-					pessoa.setNascimento(dataNascimento);
+					String email = request.getParameter("email");
+
+					pessoa.setEmail(email);
 					
 					dao.altera(pessoa);
 					

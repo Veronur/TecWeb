@@ -21,19 +21,19 @@ public class DAO {
 		}
 		 try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/meus_dados", "root", "senha123");
+			"jdbc:mysql://localhost/projeto1", "root", "senha123");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public List<Pessoas> getLista() {
-		List<Pessoas> pessoas = new ArrayList<Pessoas>();
+	public List<Usuarios> getLista() {
+		List<Usuarios> usuarios = new ArrayList<Usuarios>();
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.
-					prepareStatement("SELECT * FROM Pessoa");
+					prepareStatement("SELECT * FROM Usuarios");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,14 +47,15 @@ public class DAO {
 		}
 		try {
 			while (rs.next()) {
-				Pessoas pessoa = new Pessoas();
+				Usuarios pessoa = new Usuarios();
 				pessoa.setId(rs.getInt("id"));
 				pessoa.setNome(rs.getString("nome"));
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("nascimento"));
-				pessoa.setNascimento(data);
-				pessoa.setAltura(rs.getDouble("altura"));
-				pessoas.add(pessoa);
+
+				pessoa.setEmail(rs.getString("email"));
+				pessoa.setSenha(rs.getString("senha"));
+				
+				usuarios.add(pessoa);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -73,7 +74,7 @@ public class DAO {
 			e.printStackTrace();
 		}
 		
-		return pessoas;
+		return usuarios;
 		}
 
 	public void close() {
@@ -84,9 +85,9 @@ public class DAO {
 			e.printStackTrace();
 		}
 		}
-	public void adiciona(Pessoas pessoa) {
+	public void adiciona(Usuarios pessoa) {
 		String sql = "INSERT INTO Pessoa" +
-		"(nome,nascimento,altura) values(?,?,?)";
+		"(nome,email,senha) values(?,?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -100,15 +101,9 @@ public class DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
-			stmt.setDate(2, new Date(
-			pessoa.getNascimento().getTimeInMillis()));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			stmt.setDouble(3,pessoa.getAltura());
+			stmt.setString(3,pessoa.getSenha());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -126,9 +121,9 @@ public class DAO {
 			e.printStackTrace();
 		}
 		}
-	public void altera(Pessoas pessoa) {
+	public void altera(Usuarios pessoa) {
 		String sql = "UPDATE Pessoas SET " +
-				"nome=?, nascimento=?, altura=? WHERE id=?";
+				"nome=?, email=?, senha=? WHERE id=?";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -142,15 +137,9 @@ public class DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
-			stmt.setDate(2, new Date(pessoa.getNascimento()
-					.getTimeInMillis()));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			stmt.setDouble(3, pessoa.getAltura());
+			stmt.setString(3, pessoa.getSenha());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

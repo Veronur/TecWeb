@@ -23,8 +23,8 @@ public class Cria extends HttpServlet {
 		out.println("<html><body>");
 		out.println("<form method='post'>");
 		out.println("Nome: <input type='text' name='nome'><br>");
-		out.println("Nascimento: <input type='text' name='nascimento'><br>");
-		out.println("Altura: <input type='number' name='altura' step='0.01'><br>");
+		out.println("Email: <input type='text' name='email'><br>");
+		out.println("Senha: <input type='text' name='senha' step='0.01'><br>");
 		out.println("<input type='submit' value='Submit'>");
 		out.println("</form>");
 		out.println("<body><html>");
@@ -34,20 +34,13 @@ public class Cria extends HttpServlet {
 							HttpServletResponse response)
 			throws ServletException, IOException {
 		DAO dao = new DAO();
-	Pessoas pessoa = new Pessoas();
+	Usuarios pessoa = new Usuarios();
 	pessoa.setNome(request.getParameter("nome"));
-	pessoa.setAltura(Double.valueOf(request.getParameter("altura")));
-	String nascimento = request.getParameter("nascimento");
-	Date data = null;
-	try {
-		data = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(nascimento);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	Calendar dataNascimento = Calendar.getInstance();
+	pessoa.setSenha(String.valueOf(request.getParameter("senha")));
+	String email = request.getParameter("email");
+	
 
-	pessoa.setNascimento(dataNascimento);
+	pessoa.setEmail(email);
 	dao.adiciona(pessoa);
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
