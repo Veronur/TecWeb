@@ -50,7 +50,7 @@ public class DAO {
 				Usuarios pessoa = new Usuarios();
 				pessoa.setId(rs.getInt("id"));
 				pessoa.setNome(rs.getString("nome"));
-
+				pessoa.setLogin(rs.getString("Login"));
 				pessoa.setEmail(rs.getString("email"));
 				pessoa.setSenha(rs.getString("senha"));
 				
@@ -86,8 +86,8 @@ public class DAO {
 		}
 		}
 	public void adiciona(Usuarios pessoa) {
-		String sql = "INSERT INTO Pessoa" +
-		"(nome,email,senha) values(?,?,?)";
+		String sql = "INSERT INTO Usuarios" +
+		"(nome,Login,senha,email) values(?,?,?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -96,14 +96,30 @@ public class DAO {
 			e.printStackTrace();
 		}
 		try {
+			System.out.println(pessoa.getNome());
 			stmt.setString(1,pessoa.getNome());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		try {
+			System.out.println(pessoa.getLogin());
+			stmt.setString(2,pessoa.getLogin());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		try {
+			System.out.println(pessoa.getSenha());
 			stmt.setString(3,pessoa.getSenha());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		try {
+			System.out.println(pessoa.getEmail());
+			stmt.setString(4,pessoa.getEmail());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,8 +138,8 @@ public class DAO {
 		}
 		}
 	public void altera(Usuarios pessoa) {
-		String sql = "UPDATE Pessoas SET " +
-				"nome=?, email=?, senha=? WHERE id=?";
+		String sql = "UPDATE Usuarios SET " +
+				"nome=?,login=?, senha=?, email=? WHERE id=?";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -137,15 +153,26 @@ public class DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		try {
-			stmt.setString(3, pessoa.getSenha());
+			stmt.setString(2, pessoa.getLogin());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			stmt.setInt(4, pessoa.getId());
+			stmt.setString(3, pessoa.getSenha());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+		try {
+			stmt.setString(4,pessoa.getEmail());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(5, pessoa.getId());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -167,7 +194,7 @@ public class DAO {
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection
-			 .prepareStatement("DELETE FROM Pessoas WHERE id=?");
+			 .prepareStatement("DELETE FROM Usuarios WHERE id=?");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

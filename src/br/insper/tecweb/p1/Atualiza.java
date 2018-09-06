@@ -24,6 +24,7 @@ public class Atualiza extends HttpServlet {
 				out.println("<form method='post'>");
 				out.println("ID: <input type='number' name='id'><br>");
 				out.println("Nome: <input type='text' name='nome'><br>");
+				out.println("Login: <input type='text' name='Login'><br>");
 				out.println("Email: <input type='text' name='email'><br>");
 				out.println("Senha: <input type='text' name='senha' step='0.01'><br>");
 				out.println("<input type='submit' value='Submit'>");
@@ -38,11 +39,9 @@ public class Atualiza extends HttpServlet {
 					Usuarios pessoa = new Usuarios();
 					pessoa.setId(Integer.valueOf(request.getParameter("id")));
 					pessoa.setNome(request.getParameter("nome"));
-					pessoa.setSenha(String.valueOf(request.getParameter("senha")));
-					
-					String email = request.getParameter("email");
-
-					pessoa.setEmail(email);
+					pessoa.setLogin(request.getParameter("Login"));	
+					pessoa.setSenha(request.getParameter("senha"));	
+					pessoa.setEmail(request.getParameter("email"));
 					
 					dao.altera(pessoa);
 					

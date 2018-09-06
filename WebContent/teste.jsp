@@ -8,6 +8,7 @@
 %>
 	<tr>
  		<td><%=pessoa.getNome()%></td>
+ 		<td><%=pessoa.getLogin()%></td>
  		<td><%=pessoa.getEmail()%></td>
  		<td><%=pessoa.getSenha()%></td>
  	</tr>

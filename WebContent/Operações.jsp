@@ -7,10 +7,42 @@
 </head>
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
-<h1>Escolha suas operações</h1>
+<h1>Bem Vindo!!</h1>
 <%
 	DAO dao = new DAO();
-%>
-
+	List<Usuarios> pessoas = dao.getLista();
+	
+%>	
+<h2>Adicionar Usuário</h2>
+	<form action="cria" method="post">
+  		Nome:<br>
+  		<input type="text" name="nome"><br>
+  		Login:<br>
+  		<input type="text" name="Login"><br>
+		Senha:<br>
+  		<input type="text" name="senha"><br>
+  		Email:<br>
+  		<input type="text" name="email"><br>
+  		
+  		<input type="submit" value="Submit">
+	</form>	
+<h2>Remover Usuário</h2>
+	<form action="remove" method="post">
+  		Id: <input type="text" name="id"><br>
+  		<input type="submit" value="Delete">
+	</form>
+<h2>Atualizar</h2>
+	<form action="atualiza" method="post">
+		Nome:<br>
+  		<input type="text" name="nome"><br>
+  		Login:<br>
+  		<input type="text" name="Login"><br>
+		Senha:<br>
+  		<input type="text" name="senha"><br>
+  		Email:<br>
+  		<input type="text" name="email"><br>
+  		Id: <input type="text" name="id"><br>
+  		<input type="submit" value="Atualiza">
+	</form>
 </body>
 </html>	
