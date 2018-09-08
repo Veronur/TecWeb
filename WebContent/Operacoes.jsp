@@ -12,7 +12,9 @@
 	DAO dao = new DAO();
 	List<Usuarios> pessoas = dao.getLista();
 	
-%>	
+%>
+<button onclick="window.location.href='NovasNotas.jsp'">Novas Notas</button>
+	
 <h2>Adicionar Usuário</h2>
 	<form action="cria" method="post">
   		Nome:<br>
