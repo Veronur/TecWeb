@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class DAO {
+public class DAONota {
 	private Connection connection = null;
-	public DAO() {
+	public DAONota() {
 		 try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -28,12 +28,12 @@ public class DAO {
 		}
 	}
 	
-	public List<Usuarios> getLista() {
-		List<Usuarios> usuarios = new ArrayList<Usuarios>();
+	public List<Notas> getLista() {
+		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.
-					prepareStatement("SELECT * FROM Usuarios");
+					prepareStatement("SELECT * FROM Notas");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,14 +47,13 @@ public class DAO {
 		}
 		try {
 			while (rs.next()) {
-				Usuarios pessoa = new Usuarios();
-				pessoa.setId(rs.getInt("id"));
-				pessoa.setNome(rs.getString("nome"));
-				pessoa.setLogin(rs.getString("Login"));
-				pessoa.setEmail(rs.getString("email"));
-				pessoa.setSenha(rs.getString("senha"));
+				Notas nota = new Notas();
+				nota.setId(rs.getInt("id"));
+				nota.setTitulo(rs.getString("nome"));
+				nota.setTexto(rs.getString("Login"));
+				nota.setCor(rs.getString("email"));
 				
-				usuarios.add(pessoa);
+				notas.add(nota);
 				
 			}
 		} catch (SQLException e) {
@@ -74,7 +73,7 @@ public class DAO {
 			e.printStackTrace();
 		}
 		
-		return usuarios;
+		return notas;
 		}
 
 	public void close() {
@@ -85,9 +84,11 @@ public class DAO {
 			e.printStackTrace();
 		}
 		}
-	public void adiciona(Usuarios pessoa) {
-		String sql = "INSERT INTO Usuarios" +
-		"(nome,Login,senha,email) values(?,?,?,?)";
+	public void adiciona(Notas nota) {
+		String sql = "INSERT INTO Notas" +
+
+
+		"(aberta,usuario_abriu,titulo,texto,cor,prazo_final_nota,data_criacao) values(?,?,?,?,?,?,?)";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -96,34 +97,59 @@ public class DAO {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println(pessoa.getNome());
-			stmt.setString(1,pessoa.getNome());
+			//System.out.println(nota.getAberta());
+			stmt.setInt(1,nota.getAberta());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			System.out.println(pessoa.getLogin());
-			stmt.setString(2,pessoa.getLogin());
+			//System.out.println(nota.getUsuario_abriu());
+			stmt.setInt(2,nota.getUsuario_abriu());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
 		try {
-			System.out.println(pessoa.getSenha());
-			stmt.setString(3,pessoa.getSenha());
+			//System.out.println(nota.getTitulo());
+			stmt.setString(3,nota.getTitulo());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 		try {
-			System.out.println(pessoa.getEmail());
-			stmt.setString(4,pessoa.getEmail());
+			//System.out.println(nota.getTexto());
+			stmt.setString(4,nota.getTexto());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try {
+			//System.out.println(nota.getCor());
+			stmt.setString(5,nota.getCor());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+		}
+		
+		
+		try {
+			//System.out.println(nota.getPrazo_final());
+			stmt.setDate(6,new Date(nota.getPrazo_final().getTimeInMillis()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			//System.out.println(nota.getData_criacao());
+			stmt.setDate(7,new Date(nota.getData_criacao().getTimeInMillis()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		try {
 			stmt.execute();
 		} catch (SQLException e) {
@@ -138,7 +164,7 @@ public class DAO {
 		}
 		}
 	public void altera(Usuarios pessoa) {
-		String sql = "UPDATE Usuarios SET " +
+		String sql = "UPDATE Notas SET " +
 				"nome=?,login=?, senha=?, email=? WHERE id=?";
 		PreparedStatement stmt = null;
 		try {
@@ -194,7 +220,7 @@ public class DAO {
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection
-			 .prepareStatement("DELETE FROM Usuarios WHERE id=?");
+			 .prepareStatement("DELETE FROM Notas WHERE id=?");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

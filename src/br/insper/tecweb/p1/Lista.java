@@ -19,10 +19,11 @@ public class Lista extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.println("<html><body><table border='1'>");
 			out.println("<tr><td>ID</td><td>Nome</td>" +
-					"<td>Email</td><td>Senha</td></tr>");
+					"<td>Login</td><td>Email</td><td>Senha</td></tr>");
 			for (Usuarios pessoa : usuarios) {
 				 out.println("<tr><td>" + pessoa.getId() + "</td>");
 				 out.println("<td>" + pessoa.getNome() + "</td>");
+				 out.println("<td>" + pessoa.getLogin() + "</td>");
 				 out.println("<td>" + pessoa.getEmail() + "</td>");
 				 out.println("<td>" + pessoa.getSenha() + "</td></tr>");
 				}

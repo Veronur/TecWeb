@@ -28,6 +28,7 @@ public class Remove extends HttpServlet {
 				 				HttpServletResponse response)
 				throws ServletException, IOException {
 			 	DAO dao = new DAO();
+			 	
 			 	dao.remove(Integer.valueOf(request.getParameter("id")));
 						PrintWriter out = response.getWriter();
 						out.println("<html><body>");

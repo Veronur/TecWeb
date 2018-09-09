@@ -1,6 +1,5 @@
 package br.insper.tecweb.p1;
 
-import java.util.Calendar;
 
 public class Usuarios {
 	
@@ -8,12 +7,16 @@ public class Usuarios {
 	private String nome;
 	private String senha;
 	private String email;
+	private String Login;
 	
 	public Integer getId() {return this.id;}
 	public void setId(Integer id) {this.id = id;}
 	
 	public String getNome() {return this.nome;}
 	public void setNome(String nome) {this.nome = nome;}
+	
+	public String getLogin() {return this.Login;}
+	public void setLogin(String Login) {this.Login = Login;}
 	
 	public String getSenha() {return this.senha;}
 	public void setSenha( String senha) {this.senha = senha;}
