@@ -1,3 +1,4 @@
+//SET GLOBAL time_zone = '-3:00';
 package br.insper.tecweb.p1;
 
 import java.sql.Connection;

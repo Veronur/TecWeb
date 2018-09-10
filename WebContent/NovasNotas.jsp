@@ -32,15 +32,25 @@
 	</form>	
 <h2>Remover Nota</h2>
 	<form action="remove_nota" method="post">
-
-  			
+  		Id: <input type="number" name="id"><br>
   		<input type="submit" value="Remover">
-	</form>	
-
-
-
-
-
+	</form>
+<h2>Atualizar</h2>
+	<form action="atualiza_nota" method="post">
+		Aberta:<br>
+  		<input type="number" name="aberta"><br>
+  		Titulo:<br>
+  		<input type="text" name="titulo"><br>
+  		Texto:<br>
+  		<input type="text" name="texto"><br>
+  		Cor:<br>
+  		<input type="text" name="cor"><br>
+		Prazo:<br>
+  		<input type="date" name="prazo_final_nota"><br>
+  		Id: <input type="number" name="id"><br>
+  		
+  		<input type="submit" value="Atualiza">
+	</form>
 
 
 
