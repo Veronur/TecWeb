@@ -52,7 +52,6 @@ public class DAONota {
 				nota.setTitulo(rs.getString("titulo"));
 				nota.setTexto(rs.getString("texto"));
 				nota.setCor(rs.getString("cor"));
-				
 				notas.add(nota);
 				
 			}
