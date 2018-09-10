@@ -58,6 +58,7 @@ public class CriaNota extends HttpServlet {
 		e.printStackTrace();
 	}
 	Calendar dataPrazo = Calendar.getInstance();
+	dataPrazo.setTime(data);
  	nota.setPrazo_final(dataPrazo);
 
  	

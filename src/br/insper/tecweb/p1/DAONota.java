@@ -163,9 +163,9 @@ public class DAONota {
 			e.printStackTrace();
 		}
 		}
-	public void altera(Usuarios pessoa) {
+	public void altera(Notas nota) {
 		String sql = "UPDATE Notas SET " +
-				"nome=?,login=?, senha=?, email=? WHERE id=?";
+				"aberta=?,titulo=?, texto=?, cor=?,prazo_final_nota=? WHERE id=?";
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -174,31 +174,38 @@ public class DAONota {
 			e.printStackTrace();
 		}
 		try {
-			stmt.setString(1, pessoa.getNome());
+			stmt.setInt(1, nota.getAberta());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			stmt.setString(2, pessoa.getLogin());
+			stmt.setString(2, nota.getTitulo());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			stmt.setString(3, pessoa.getSenha());
+			stmt.setString(3, nota.getTexto());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		}
 		try {
-			stmt.setString(4,pessoa.getEmail());
+			stmt.setString(4,nota.getCor());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			stmt.setInt(5, pessoa.getId());
+			//System.out.println(nota.getPrazo_final());
+			stmt.setDate(5,new Date(nota.getPrazo_final().getTimeInMillis()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			stmt.setInt(6, nota.getId());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
