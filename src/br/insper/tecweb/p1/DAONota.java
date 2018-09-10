@@ -49,9 +49,9 @@ public class DAONota {
 			while (rs.next()) {
 				Notas nota = new Notas();
 				nota.setId(rs.getInt("id"));
-				nota.setTitulo(rs.getString("nome"));
-				nota.setTexto(rs.getString("Login"));
-				nota.setCor(rs.getString("email"));
+				nota.setTitulo(rs.getString("titulo"));
+				nota.setTexto(rs.getString("texto"));
+				nota.setCor(rs.getString("cor"));
 				
 				notas.add(nota);
 				
