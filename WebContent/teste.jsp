@@ -1,16 +1,20 @@
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
 <table border='1'>
+<button onclick="window.location.href='NovasNotas.jsp'">Editar Notas</button>
+
+<h1>NOTAS</h1>
 <%
-	DAO dao = new DAO();
- 	List<Usuarios> pessoas = dao.getLista();
- 	for (Usuarios pessoa : pessoas ) {
+	DAONota dao = new DAONota();
+ 	List<Notas> notas = dao.getListaNota();
+ 	for (Notas nota : notas ) {
 %>
 	<tr>
- 		<td><%=pessoa.getNome()%></td>
- 		<td><%=pessoa.getLogin()%></td>
- 		<td><%=pessoa.getEmail()%></td>
- 		<td><%=pessoa.getSenha()%></td>
+ 		<td><%=nota.getTitulo()%></td>
+ 		<td><%=nota.getTexto()%></td>
+ 		<td><%=nota.getCor()%></td>
+ 		<td><%=nota.getPrazo_final().getTime()%></td>
+ 		<td><%=nota.getData_criacao().getTime()%></td>
  	</tr>
 <% } %>
 </table>
