@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/lista")
+@WebServlet("/listaNota")
 public class ListaNota extends HttpServlet {
 	protected void service(HttpServletRequest request,
 							HttpServletResponse response)
