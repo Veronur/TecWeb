@@ -14,12 +14,12 @@ public class ListaNota extends HttpServlet {
 		
 			DAONota daonota = new DAONota();
 			
-			List<Notas> notas = daonota.getLista();
+			List<Notas> notas = daonota.getListaNota();
 			
 			PrintWriter out = response.getWriter();
 			out.println("<html><body><table border='1'>");
-			out.println("<tr><td>ID</td><td>Nome</td>" +
-					"<td>Login</td><td>Email</td><td>Senha</td></tr>");
+			out.println("<tr><td>ID</td><td>Titulo</td>" +
+					"<td>Texto</td><td>Cor</td><td>Prazo_final_nota</td></tr>");
 			for (Notas nota : notas) {
 				 out.println("<tr><td>" + nota.getId() + "</td>");
 				 out.println("<td>" + nota.getTitulo() + "</td>");

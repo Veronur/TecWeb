@@ -13,6 +13,7 @@ import java.util.List;
 public class DAONota {
 	private Connection connection = null;
 	public DAONota() {
+		
 		 try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -28,7 +29,7 @@ public class DAONota {
 		}
 	}
 	
-	public List<Notas> getLista() {
+	public List<Notas> getListaNota() {
 		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
@@ -52,6 +53,9 @@ public class DAONota {
 				nota.setTitulo(rs.getString("titulo"));
 				nota.setTexto(rs.getString("texto"));
 				nota.setCor(rs.getString("cor"));
+				Calendar calPR = Calendar.getInstance();
+				calPR.setTime(rs.getDate("prazo_final_nota"));
+				nota.setPrazo_final(calPR);
 				notas.add(nota);
 				
 			}
