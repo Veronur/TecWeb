@@ -27,9 +27,6 @@
   		<input type="text" name="cor"><br>
 		Prazo:<br>
   		<input type="date" name="prazo_final_nota"><br>
-  		Data da Criação:<br>
-  		<input type="date" name="data_criacao"><br>
-  			
   		<input type="submit" value="Submit">
 	</form>	
 <h2>Remover Nota</h2>

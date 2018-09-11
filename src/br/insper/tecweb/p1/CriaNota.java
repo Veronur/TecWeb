@@ -62,15 +62,7 @@ public class CriaNota extends HttpServlet {
  	nota.setPrazo_final(dataPrazo);
 
  	
- 	
- 	String data_criacao = request.getParameter("data_criacao");
-	Date datac = null;
-	try {
-		datac = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(data_criacao);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+ 
 	Calendar dataCria = Calendar.getInstance();
 	System.out.println("DATA");
 	System.out.println(dataCria);

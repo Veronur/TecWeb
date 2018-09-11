@@ -53,9 +53,14 @@ public class DAONota {
 				nota.setTitulo(rs.getString("titulo"));
 				nota.setTexto(rs.getString("texto"));
 				nota.setCor(rs.getString("cor"));
-				Calendar calPR = Calendar.getInstance();
-				calPR.setTime(rs.getDate("prazo_final_nota"));
-				nota.setPrazo_final(calPR);
+				
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getDate("prazo_final_nota"));
+				nota.setPrazo_final(cal);
+				
+				cal.setTime(rs.getDate("data_criacao"));
+				nota.setData_criacao(cal);
+				
 				notas.add(nota);
 				
 			}

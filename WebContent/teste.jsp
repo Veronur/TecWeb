@@ -14,6 +14,7 @@
  		<td><%=nota.getTexto()%></td>
  		<td><%=nota.getCor()%></td>
  		<td><%=nota.getPrazo_final().getTime()%></td>
+ 		<td><%=nota.getData_criacao().getTime()%></td>
  	</tr>
 <% } %>
 </table>
