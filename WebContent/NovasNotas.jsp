@@ -9,6 +9,8 @@
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
 <button onclick="window.location.href='Operacoes.jsp'">Opções de Usuário</button>
+
+<button onclick="window.location.href='teste.jsp'">Ver Notas</button>
 <h1>Qual sua nova nota?</h1>
 
 <h2>Adicionar Nota</h2>
