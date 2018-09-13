@@ -34,7 +34,7 @@ public class DAO {
 		PreparedStatement stmt = null;
 		try {
 			stmt = connection.
-					prepareStatement("SELECT * FROM Usuarios");
+					prepareStatement("SELECT * FROM usuarios");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -219,5 +219,36 @@ public class DAO {
 			e.printStackTrace();
 		}
 		}
+	public void login(Usuarios pessoa) {
+		String sql = "SELECT id FROM usuarios where Login=? and senha=?";
+		PreparedStatement stmt = null;
+		try {
+			System.out.println(pessoa.getLogin());
+			stmt.setString(1,pessoa.getLogin());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		try {
+			System.out.println(pessoa.getSenha());
+			stmt.setString(2,pessoa.getSenha());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		try {
+			stmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			
+	}
 	
 }

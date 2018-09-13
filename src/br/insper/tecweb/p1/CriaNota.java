@@ -44,10 +44,7 @@ public class CriaNota extends HttpServlet {
 	nota.setTitulo(request.getParameter("titulo"));
 	nota.setTexto(request.getParameter("texto"));
 	nota.setCor(request.getParameter("cor"));
-	
-	//nota.setPrazo_final(request.getParameter("prazo_final"));
-	//nota.setData_criacao(request.getParameter("data_criacao"));
-	
+
 	
 	String prazo_final_nota = request.getParameter("prazo_final_nota");
 	Date data = null;

@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
-<h1>Bem Vindo!!</h1>
+<h1>Opções</h1>
 <%
 	DAO dao = new DAO();
 	List<Usuarios> pessoas = dao.getLista();
