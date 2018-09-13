@@ -21,6 +21,7 @@
 		<input type="submit" value="LOGIN">
 	</form>
 	
+	
 	<button onclick="window.location.href='NewUser.jsp'">Novo Usuário</button>
 
 

@@ -41,6 +41,7 @@ public class Cria extends HttpServlet {
 	pessoa.setSenha(request.getParameter("senha"));
 	pessoa.setEmail(request.getParameter("email"));
 	
+	
 	dao.adiciona(pessoa);
 	response.sendRedirect("Login.jsp"); 
  }

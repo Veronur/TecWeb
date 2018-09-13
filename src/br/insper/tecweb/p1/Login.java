@@ -32,6 +32,7 @@ public class Login extends HttpServlet {
 				throws ServletException, IOException {
 			 	DAO dao = new DAO();
 			 	
+			 	
 			 	Usuarios pessoa = new Usuarios();
 			 	pessoa.setLogin(request.getParameter("Login"));
 				pessoa.setSenha(request.getParameter("senha"));
