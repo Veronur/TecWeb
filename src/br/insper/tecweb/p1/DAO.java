@@ -219,11 +219,17 @@ public class DAO {
 			e.printStackTrace();
 		}
 		}
-	public void login(Usuarios pessoa) {
-		String sql = "SELECT id FROM usuarios where Login=? and senha=?";
+	public Integer login(Usuarios pessoa) {
+		String sql = "SELECT * FROM usuarios where Login=? and senha=?";
 		PreparedStatement stmt = null;
 		try {
-			System.out.println(pessoa.getLogin());
+			stmt = connection.prepareStatement(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			//System.out.println(pessoa.getLogin());
 			stmt.setString(1,pessoa.getLogin());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -231,24 +237,34 @@ public class DAO {
 		}
 	
 		try {
-			System.out.println(pessoa.getSenha());
+			//System.out.println(pessoa.getSenha());
 			stmt.setString(2,pessoa.getSenha());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		ResultSet rs = null;
+		Integer id_loged=null;
 		try {
-			stmt.execute();
+			rs = stmt.executeQuery();
+			while (rs.next()) { 
+				//System.out.println(rs.getInt("id"));
+				id_loged=rs.getInt("id");
+
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		
 		}
 		try {
 			stmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}			
+		}
+		return id_loged;
 	}
 	
 }

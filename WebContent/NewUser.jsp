@@ -4,26 +4,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>NewUser</title>
 </head>
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
-<h1>Bem Vindo!</h1>
-<%
-	DAO dao = new DAO();
-	List<Usuarios> pessoas = dao.getLista();
-%>
-	<form action="login" method="post">
-		Login:<br>
+<h2>Adicionar Usuário</h2>
+	<form action="cria" method="post">
+  		Nome:<br>
+  		<input type="text" name="nome"><br>
+  		Login:<br>
   		<input type="text" name="Login"><br>
 		Senha:<br>
   		<input type="text" name="senha"><br>
-		<input type="submit" value="LOGIN">
-	</form>
-	
-	<button onclick="window.location.href='NewUser.jsp'">Novo Usuário</button>
-
-
-
+  		Email:<br>
+  		<input type="text" name="email"><br>
+  		
+  		<input type="submit" value="Cria">
+	</form>	
 </body>
 </html>

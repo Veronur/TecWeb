@@ -42,11 +42,6 @@ public class Cria extends HttpServlet {
 	pessoa.setEmail(request.getParameter("email"));
 	
 	dao.adiciona(pessoa);
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("adicionado" + pessoa.getNome());
-		
-		out.println("</body></html>");
-		dao.close();
+	response.sendRedirect("Login.jsp"); 
  }
 }

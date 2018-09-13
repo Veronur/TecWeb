@@ -2,6 +2,7 @@ package br.insper.tecweb.p1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
-public class Login extends HttpServlet {
-		 @Override
+public class Login extends HttpServlet { 
+
+		@Override
 		protected void doGet(HttpServletRequest request,
 								HttpServletResponse response)
 				throws ServletException, IOException {
@@ -33,7 +35,22 @@ public class Login extends HttpServlet {
 			 	Usuarios pessoa = new Usuarios();
 			 	pessoa.setLogin(request.getParameter("Login"));
 				pessoa.setSenha(request.getParameter("senha"));
-			 	dao.login(pessoa);
+			 	Integer id_login=dao.login(pessoa);
+			 	Calendar lastlogin=Calendar.getInstance();
+
+			 	if (id_login!=null) {
+			 		System.out.println(("certo"));
+			 		response.sendRedirect("teste.jsp"); 
+			 	}
+			 	else {
+			 		PrintWriter out = response.getWriter();
+					out.println("<html><body>");
+					out.println("BAD LOGIN");
+					out.println("</body></html>");
+			 	}
+			 		
+			 	//System.out.println(logtime.getTime());
+			 	//System.out.println(id_login);
 		dao.close();
 		 }
 }
