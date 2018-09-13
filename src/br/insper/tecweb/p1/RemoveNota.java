@@ -31,9 +31,9 @@ public class RemoveNota extends HttpServlet {
 			 	
 			 	dao.remove(Integer.valueOf(request.getParameter("id")));
 						PrintWriter out = response.getWriter();
-//						out.println("<html><body>");
-//						out.println("removido");
-//						out.println("</body></html>");
+						out.println("<html><body>");
+						out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
+						out.println("</body></html>");
 		dao.close();
 		 }
 }

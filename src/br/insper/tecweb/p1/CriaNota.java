@@ -69,7 +69,7 @@ public class CriaNota extends HttpServlet {
 	daoNota.adiciona(nota);
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("adicionado" + nota.getTitulo());
+		out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
 		
 		out.println("</body></html>");
 		daoNota.close();

@@ -60,7 +60,7 @@ public class AtualizaNota extends HttpServlet {
 					
 					PrintWriter out = response.getWriter();
 					out.println("<html><body>");
-					out.println("atualizado" + nota.getTitulo());
+					out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
 					out.println("</body></html>");
 					dao.close();
 					
