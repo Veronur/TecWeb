@@ -11,7 +11,7 @@
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
 <%
 	DAONota daonota = new DAONota();
-	List<Notas> notas = daonota.getLista();
+	List<Notas> notas = daonota.getListaNota();
 	for (Notas nota : notas ) {
 %>
 	<div class="nota">
@@ -20,7 +20,7 @@
 	 			</div>
 	 		<div class="texto"><%=nota.getTexto()%></div>
 	 		<div class="cor"><%=nota.getCor()%></div>
-	 		<div class="prazo_final"><%=nota.getPrazo_final()%></div>
+	 		<div class="prazo_final"><%=nota.getPrazo_final().getTime()%></div>
 	 		<form action="remove_nota" method="post">
 		  		<input type="hidden" name="id" value="<%=nota.getId()%>">
 		  		<input type="submit" value="Delete">
