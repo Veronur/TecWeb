@@ -33,8 +33,7 @@ public class DAONota {
 		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
-			stmt = connection.
-					prepareStatement("SELECT * FROM Notas");
+			stmt = connection.prepareStatement("SELECT * FROM Notas");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

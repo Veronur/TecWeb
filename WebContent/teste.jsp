@@ -4,6 +4,9 @@
 <button onclick="window.location.href='NovasNotas.jsp'">Editar Notas</button>
 
 <h1>NOTAS</h1>
+	
+	<%Integer id= (int) (request.getAttribute("idlog")); %>
+	<% System.out.println((id));%>
 <%
 	DAONota dao = new DAONota();
  	List<Notas> notas = dao.getListaNota();

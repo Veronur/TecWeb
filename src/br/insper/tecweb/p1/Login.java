@@ -41,7 +41,10 @@ public class Login extends HttpServlet {
 
 			 	if (id_login!=null) {
 			 		System.out.println(("certo"));
-			 		response.sendRedirect("teste.jsp"); 
+			 		request.setAttribute("idlog", id_login);
+			 		request.setAttribute("timelog",lastlogin);
+			 		request.getRequestDispatcher("teste.jsp").forward(request, response);
+			 		//response.sendRedirect("teste.jsp"); 
 			 	}
 			 	else {
 			 		PrintWriter out = response.getWriter();

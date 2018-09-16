@@ -33,8 +33,7 @@ public class DAO {
 		List<Usuarios> usuarios = new ArrayList<Usuarios>();
 		PreparedStatement stmt = null;
 		try {
-			stmt = connection.
-					prepareStatement("SELECT * FROM usuarios");
+			stmt = connection.prepareStatement("SELECT * FROM Usuarios");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
