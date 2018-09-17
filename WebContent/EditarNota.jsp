@@ -9,8 +9,7 @@
 <body>
 <h2>Atualizar Nota</h2>
 	<form action="atualiza_nota" method="post">
-		Aberta:<br>
-  		<input type="number" name="aberta"><br>
+		<input type="hidden" name="aberta" value="1">
   		Titulo:<br>
   		<input type="text" name="titulo"><br>
   		Texto:<br>

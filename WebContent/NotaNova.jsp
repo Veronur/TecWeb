@@ -8,11 +8,9 @@
 </head>
 <body>
 <h1>Qual sua nova nota?</h1>
-
 <h2>Adicionar Nota</h2>
 	<form action="cria_nota" method="post">
-  		Aberta:<br>
-  		<input type="number" name="aberta"><br>
+  		<input type="hidden" name="aberta" value="1">
   		Quem Abriu:<br>
   		<input type="number" name="usuario_abriu"><br>
 		Titulo:<br>
@@ -20,7 +18,7 @@
   		Texto:<br>
   		<input type="text" name="texto"><br>
   		Cor:<br>
-  		<input type="text" name="cor"><br>
+  		<input name="cor" type="color"/>
 		Prazo:<br>
   		<input type="date" name="prazo_final_nota"><br>
   		<input type="submit" value="Submit">

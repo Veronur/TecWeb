@@ -17,17 +17,16 @@
 	List<Notas> notas = daonota.getListaNota();
 	for (Notas nota : notas ) {
 %>
-	<div class="nota">
+	<div class="nota" style="background-color: <%=nota.getCor()%>">
 	 		<div class="titulo">
 	 			<h2><%=nota.getTitulo()%></h2>
 	 			</div>
 	 		<div class="texto"><%=nota.getTexto()%></div>
-	 		<h4>Cor:</h4>
-	 		<div class="cor"><%=nota.getCor()%></div>
 	 		<h4>Nota Criada em:</h4>
 	 		<div class="prazo_final"><%=nota.getData_criacao().getTime()%></div>
 	 		
 	 		<h4>Prazo Final:</h4>
+	 			 		
 	 		<div class="prazo_final"><%=nota.getPrazo_final().getTime()%></div>
 	 		<div class='botoes'>
 	 			<div>
