@@ -19,7 +19,7 @@
   		<input type="text" name="cor"><br>
 		Prazo:<br>
   		<input type="date" name="prazo_final_nota"><br>
-  		Id:<input type="hidden" name="id" value=<%=request.getParameter("id") %>><br>
+  		<input type="hidden" name="id" value=<%=request.getParameter("id") %>><br>
   		<input type="submit" value="Atualiza">
 	</form>
 	</body>
