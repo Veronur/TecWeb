@@ -14,7 +14,7 @@ public class ListaNota extends HttpServlet {
 		
 			DAONota daonota = new DAONota();
 			
-			List<Notas> notas = daonota.getListaNota();
+			List<Notas> notas = daonota.getListaNota(idlog);
 			
 			PrintWriter out = response.getWriter();
 			out.println("<html><body><table border='1'>");

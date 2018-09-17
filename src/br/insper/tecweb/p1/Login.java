@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 			 		System.out.println(("certo"));
 			 		request.setAttribute("idlog", id_login);
 			 		request.setAttribute("timelog",lastlogin);
-			 		request.getRequestDispatcher("teste.jsp").forward(request, response);
+			 		request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response);
 			 		//response.sendRedirect("teste.jsp"); 
 			 	}
 			 	else {

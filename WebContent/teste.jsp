@@ -5,11 +5,11 @@
 
 <h1>NOTAS</h1>
 	
-	<%Integer id= (int) (request.getAttribute("idlog")); %>
-	<% System.out.println((id));%>
+	<%Integer idlog= (int) (request.getAttribute("idlog")); %>
+	<% System.out.println((idlog));%>
 <%
 	DAONota dao = new DAONota();
- 	List<Notas> notas = dao.getListaNota();
+ 	List<Notas> notas = dao.getListaNota(idlog);
  	for (Notas nota : notas ) {
 %>
 	<tr>

@@ -61,8 +61,8 @@ public class CriaNota extends HttpServlet {
  	
  
 	Calendar dataCria = Calendar.getInstance();
-	System.out.println("DATA");
-	System.out.println(dataCria);
+//	System.out.println("DATA");
+//	System.out.println(dataCria);
  	nota.setData_criacao(dataCria);
 	
 	

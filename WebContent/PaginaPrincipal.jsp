@@ -12,9 +12,12 @@
 	</div>
  <div class="flex-container">
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
+<%Integer idlog= (int) (request.getAttribute("idlog")); %>
 <%
 	DAONota daonota = new DAONota();
-	List<Notas> notas = daonota.getListaNota();
+	System.out.println("cú");
+
+	List<Notas> notas = daonota.getListaNota(idlog);
 	for (Notas nota : notas ) {
 %>
 	<div class="nota" style="background-color: <%=nota.getCor()%>">
