@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
 			 	Calendar lastlogin=Calendar.getInstance();
 
 			 	if (id_login!=null) {
-			 		System.out.println(("certo"));
+			 		//System.out.println(("certo"));
 			 		request.setAttribute("idlog", id_login);
 			 		request.setAttribute("timelog",lastlogin);
 			 		request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response);

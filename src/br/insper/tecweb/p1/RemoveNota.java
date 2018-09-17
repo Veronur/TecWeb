@@ -30,10 +30,9 @@ public class RemoveNota extends HttpServlet {
 			 	DAONota dao = new DAONota();
 			 	
 			 	dao.remove(Integer.valueOf(request.getParameter("id")));
-						PrintWriter out = response.getWriter();
-						out.println("<html><body>");
-						out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
-						out.println("</body></html>");
+			 	Integer id_login=Integer.valueOf(request.getParameter("idlog"));
+				request.setAttribute("idlog", id_login);
+				request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response);
 		dao.close();
 		 }
 }

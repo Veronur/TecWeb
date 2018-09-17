@@ -29,7 +29,7 @@ public class DAONota {
 		}
 	}
 	
-	public List<Notas> getListaNota(Integer idlog) {
+	public List<Notas> getListaNota(String idlog) {
 		List<Notas> notas = new ArrayList<Notas>();
 		PreparedStatement stmt = null;
 		try {
@@ -38,10 +38,10 @@ public class DAONota {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		Integer idl= Integer.parseInt(idlog);
 		try {
 			//System.out.println(nota.getAberta());
-			stmt.setInt(1,idlog);
+			stmt.setInt(1,idl);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -15,10 +15,11 @@
   		Texto:<br>
   		<input type="text" name="texto"><br>
   		Cor:<br>
-  		<input type="text" name="cor"><br>
+  		<input type="color" name="cor"><br>
 		Prazo:<br>
   		<input type="date" name="prazo_final_nota"><br>
   		<input type="hidden" name="id" value=<%=request.getParameter("id") %>><br>
+  		<input type="hidden" name="idlog" value=<%=request.getParameter("idlog") %>><br>
   		<input type="submit" value="Atualiza">
 	</form>
 	</body>

@@ -58,10 +58,11 @@ public class AtualizaNota extends HttpServlet {
 					
 					dao.altera(nota);
 					
-					PrintWriter out = response.getWriter();
-					out.println("<html><body>");
-					out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
-					out.println("</body></html>");
+					//PrintWriter out = response.getWriter();
+					String idlogin= request.getParameter("idlog");
+					System.out.println(idlogin);
+					request.setAttribute("idlog", idlogin);
+					request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response);
 					dao.close();
 					
 	}

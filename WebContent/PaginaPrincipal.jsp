@@ -4,21 +4,22 @@
  <link rel="stylesheet" href="PaginaInicial.css">
  
  <body>
- 	<div class="titulo_pagina">
+ 	
+<%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
+
+	<div class="titulo_pagina">
 		<h2>Notas</h2>
 	</div>
 	
- <div class="flex-container">
-<%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
-<%Integer idlog= (int) (request.getAttribute("idlog")); %>
+ 	<div class="flex-container">
 	<div class="botao_novo_nota">
-		<button onclick="window.location.href='NotaNova.jsp?idlog=<%=idlog%>'">Nota Nova</button>
+		<button onclick="window.location.href='NotaNova.jsp?idlog=<%=request.getAttribute("idlog")%>'">Nota Nova</button>
 	</div>
 <%
 	DAONota daonota = new DAONota();
-	System.out.println("cú");
+	
 
-	List<Notas> notas = daonota.getListaNota(idlog);
+	List<Notas> notas = daonota.getListaNota(String.valueOf(request.getAttribute("idlog")));
 	for (Notas nota : notas ) {
 %>
 	<div class="nota" style="background-color: <%=nota.getCor()%>">
@@ -36,11 +37,12 @@
 	 			<div>
 		 		<form action="remove_nota" method="post">
 			  		<input type="hidden" name="id" value="<%=nota.getId()%>">
+			  		<input type="hidden" name="idlog" value="<%=request.getAttribute("idlog")%>">
 			  		<input type="submit" value="Delete">
 				</form>
 				</div>
 				<div>
-				<button onclick="window.location.href='EditarNota.jsp?id=<%=idlog%>'">Editar</button>
+				<button onclick="window.location.href='EditarNota.jsp?id=<%=nota.getId()%>&idlog=<%=request.getAttribute("idlog")%>'">Editar</button>
 				</div>
 			</div>
 	</div>
