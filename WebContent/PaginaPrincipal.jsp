@@ -7,12 +7,13 @@
  	<div class="titulo_pagina">
 		<h2>Notas</h2>
 	</div>
-	<div class="botao_novo_nota">
-		<button onclick="window.location.href='NotaNova.jsp'">Nota Nova</button>
-	</div>
+	
  <div class="flex-container">
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
 <%Integer idlog= (int) (request.getAttribute("idlog")); %>
+	<div class="botao_novo_nota">
+		<button onclick="window.location.href='NotaNova.jsp?idlog=<%=idlog%>'">Nota Nova</button>
+	</div>
 <%
 	DAONota daonota = new DAONota();
 	System.out.println("cú");
@@ -39,7 +40,7 @@
 				</form>
 				</div>
 				<div>
-				<button onclick="window.location.href='EditarNota.jsp?id=<%=nota.getId()%>'">Editar</button>
+				<button onclick="window.location.href='EditarNota.jsp?id=<%=idlog%>'">Editar</button>
 				</div>
 			</div>
 	</div>

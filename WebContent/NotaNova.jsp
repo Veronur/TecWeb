@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Nova Nota</title>
 </head>
 <body>
 <h1>Qual sua nova nota?</h1>
 <h2>Adicionar Nota</h2>
 	<form action="cria_nota" method="post">
   		<input type="hidden" name="aberta" value="1">
-  		Quem Abriu:<br>
-  		<input type="number" name="usuario_abriu"><br>
+  		<br>
+  		<input type="hidden" name="usuario_abriu" value=<%=request.getParameter("idlog") %>>
 		Titulo:<br>
   		<input type="text" name="titulo"><br>
   		Texto:<br>

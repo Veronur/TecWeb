@@ -67,11 +67,15 @@ public class CriaNota extends HttpServlet {
 	
 	
 	daoNota.adiciona(nota);
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
-		
-		out.println("</body></html>");
+	Integer id_login=Integer.valueOf(request.getParameter("usuario_abriu"));
+	request.setAttribute("idlog", id_login);
+//		PrintWriter out = response.getWriter();
+//		out.println("<html><body>");
+//		out.println("<script> window.location = 'PaginaPrincipal.jsp' </script>");
+//		
+//		out.println("</body></html>");
+	request.getRequestDispatcher("PaginaPrincipal.jsp").forward(request, response);
 		daoNota.close();
+		
  }
 }
