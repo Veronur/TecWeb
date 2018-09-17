@@ -10,11 +10,11 @@
 	<div class="titulo_pagina">
 		<h2>Notas</h2>
 	</div>
-	
- 	<div class="flex-container">
 	<div class="botao_novo_nota">
 		<button onclick="window.location.href='NotaNova.jsp?idlog=<%=request.getAttribute("idlog")%>'">Nota Nova</button>
 	</div>
+ 	<div class="flex-container">
+	
 <%
 	DAONota daonota = new DAONota();
 	
@@ -46,7 +46,6 @@
 				</div>
 			</div>
 	</div>
-	
 <% } %>
 </div>
 
