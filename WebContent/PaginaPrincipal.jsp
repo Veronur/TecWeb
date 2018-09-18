@@ -12,6 +12,7 @@
 	</div>
 	<div class="botao_novo_nota">
 		<button onclick="window.location.href='NotaNova.jsp?idlog=<%=request.getAttribute("idlog")%>'">Nota Nova</button>
+		<button onclick="window.location.href='Operacoes.jsp?idlog=<%=request.getAttribute("idlog")%>'">Opções</button>
 	</div>
  	<div class="flex-container">
 	

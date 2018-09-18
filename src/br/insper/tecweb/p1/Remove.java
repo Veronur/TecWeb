@@ -28,12 +28,11 @@ public class Remove extends HttpServlet {
 				 				HttpServletResponse response)
 				throws ServletException, IOException {
 			 	DAO dao = new DAO();
-			 	
+			 	System.out.println(request.getParameter("id"));
 			 	dao.remove(Integer.valueOf(request.getParameter("id")));
-						PrintWriter out = response.getWriter();
-						out.println("<html><body>");
-						out.println("removido");
-						out.println("</body></html>");
+			 	
+			 	request.getRequestDispatcher("Login.jsp").forward(request, response);
+			 	
 		dao.close();
 		 }
 }
