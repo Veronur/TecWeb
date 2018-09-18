@@ -28,12 +28,20 @@
 	 			<h2><%=nota.getTitulo()%></h2>
 	 			</div>
 	 		<div class="texto"><%=nota.getTexto()%></div>
-	 		<h4>Nota Criada em:</h4>
-	 		<div class="prazo_final"><%=nota.getData_criacao().getTime()%></div>
-	 		
-	 		<h4>Prazo Final:</h4>
+	 		<div class="flex-container2">
+	 		<div class='datas'>
+		 		<h5>Data da Criação:</h5>
+		 		
+		 			<h4><div class="prazo_final"><%=nota.getData_criacao().get(Calendar.DAY_OF_MONTH)%>/<%=nota.getData_criacao().get(Calendar.MONTH)%>/<%=nota.getData_criacao().get(Calendar.YEAR)%></div></h4>
+		 		
+	 		</div>
+	 		<div class='datas'>
+	 			<h5>Data Prazo Final:</h5>
 	 			 		
-	 		<div class="prazo_final"><%=nota.getPrazo_final().getTime()%></div>
+	 		<h4><div class="prazo_final"><%=nota.getPrazo_final().get(Calendar.DAY_OF_MONTH)%>/<%=nota.getPrazo_final().get(Calendar.MONTH)%>/<%=nota.getPrazo_final().get(Calendar.YEAR)%></div></h4>
+	 		
+	 		</div>
+	 		</div>
 	 		<div class='botoes'>
 	 			<div>
 		 		<form action="remove_nota" method="post">
