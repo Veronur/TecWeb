@@ -7,13 +7,12 @@
 </head>
 <body>
 <%@ page import="java.util.*,br.insper.tecweb.p1.*" %>
-<h1>Opções</h1>
+<h1>OpÃ§Ãµes</h1>
 <%
 	DAO dao = new DAO();
 	List<Usuarios> pessoas = dao.getLista();
 	//System.out.println(request.getParameter("idlog"));
 %>
-<button onclick="window.location.href='NovasNotas.jsp'">Novas Notas</button>
 <h2>Atualizar</h2>
 	<form action="atualiza" method="post">
 		Nome:<br>
@@ -27,7 +26,7 @@
   		<input type="hidden" name="id" value=<%=request.getParameter("idlog")%>><br>
   		<input type="submit" value="Atualiza">
 	</form>
-<h2>Remover Usuário</h2>
+<h2>Remover UsuÃ¡rio</h2>
 	<form action="remove" method="post">
   		<input type="hidden" name="id" value=<%=request.getParameter("idlog")%>><br>
   		<input type="submit" value="Delete">
