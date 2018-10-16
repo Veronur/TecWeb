@@ -26,7 +26,7 @@
   		<input type="hidden" name="id" value=<%=request.getParameter("idlog")%>><br>
   		<input type="submit" value="Atualiza">
 	</form>
-<h2>Remover Usuário</h2>
+<h2>Remover usuario</h2>
 	<form action="remove" method="post">
   		<input type="hidden" name="id" value=<%=request.getParameter("idlog")%>><br>
   		<input type="submit" value="Delete">
